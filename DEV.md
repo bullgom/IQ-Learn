@@ -23,6 +23,7 @@ docker run --gpus all -it --rm \
 ```
 
 **Flags explanation:**
+
 - `--gpus all`: Enables GPU support inside the container (requires NVIDIA Container Toolkit).
 - `-v $(pwd):/workspace`: Mounts your local source code into the container so changes are reflected immediately.
 - `-p 6006:6006`: Exposes the TensorBoard port.
@@ -33,6 +34,7 @@ docker run --gpus all -it --rm \
 Once inside the container, you can run training scripts as described in the README.
 
 **Example:**
+
 ```bash
 cd iq_learn
 python train_iq.py agent=softq env=cartpole expert.demos=10
@@ -40,7 +42,9 @@ python train_iq.py agent=softq env=cartpole expert.demos=10
 
 **TensorBoard:**
 To view logs, run TensorBoard inside the container:
+
 ```bash
 tensorboard --logdir iq_learn/logs --bind_all
 ```
+
 Then open `http://localhost:6006` in your browser.
